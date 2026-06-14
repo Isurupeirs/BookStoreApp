@@ -1,0 +1,61 @@
+﻿<Window x:Class="BookStoreApp.Views.StudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BookStore Library - Student"
+        Height="600" Width="700"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Student Name and Staff Contact -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock x:Name="lblStudentName" FontSize="16" FontWeight="Bold"/>
+            <TextBlock x:Name="lblStaffContact" Foreground="Gray"/>
+        </StackPanel>
+
+        <!-- Search Bar -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Search Book:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtSearch" Width="300" Height="30" Padding="5"/>
+            <Button Content="Search" Width="80" Height="30"
+                    Margin="10,0,0,0" Click="btnSearch_Click"/>
+        </StackPanel>
+
+        <!-- Search Results -->
+        <DataGrid Grid.Row="2" x:Name="dgBooks"
+                  Height="150" Margin="0,0,0,10"
+                  AutoGenerateColumns="True"
+                  IsReadOnly="True"
+                  SelectionChanged="dgBooks_SelectionChanged"/>
+
+        <!-- Borrow Duration -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBlock Text="Borrow Days:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtDays" Width="100" Height="30" Padding="5"/>
+            <Button Content="Calculate" Width="90" Height="30"
+                    Margin="10,0,0,0" Click="btnCalculate_Click"/>
+            <TextBlock x:Name="lblReturnDate" VerticalAlignment="Center"
+                       Margin="15,0,0,0" Foreground="Blue"/>
+        </StackPanel>
+
+        <!-- Validation Message -->
+        <TextBlock Grid.Row="4" x:Name="lblMessage" Foreground="Green" Margin="0,0,0,10"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="0,10,0,0">
+            <Button Content="Finalise Borrow" Width="120" Height="35"
+                    Margin="0,0,10,0" Click="btnFinalise_Click"/>
+            <Button Content="Cancel" Width="80" Height="35"
+                    Click="btnCancel_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
